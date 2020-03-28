@@ -7,10 +7,10 @@ CREATE DATABASE banco;
 USE banco;
 
 -- SINAL DE DIFERENTE É <> OU !=
-SELECT * FROM tb_funcionarios WHERE sexo <> 'F';
+SELECT * FROM tb_funcionarios WHERE sexo != 'F';
 
 --  ATUALIZA DADOS NAS COLUNAS SELECIONADAS
-UPDATE tb_funcionarios SET sexo = 'F' WHERE id = 1;
+UPDATE tb_funcionarios SET salario = '5500.99', admissao = '2015-05-01' WHERE id = 1;
 
 -- ALTERA NOME DA TABELA (nome_antigo nome_novo - COLOCAR STMT NO FINAL)
 ALTER TABLE tb_funcionarios
@@ -21,7 +21,7 @@ SELECT * FROM tb_funcionarios;
 
 SELECT * FROM tb_funcionarios WHERE	cadastro > '2018-01-01';
 
-UPDATE tb_funcionarios SET adminissao = CURRENT_DATE() WHERE id = 1;
+UPDATE tb_funcionarios SET admissao = CURRENT_DATE() WHERE id = 1;
 
 -- CRIA TABELA E COLUNAS
 CREATE TABLE tb_funcionarios (
@@ -33,7 +33,8 @@ CREATE TABLE tb_funcionarios (
     cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 );
 
-INSERT INTO tb_funcionarios VALUES (2, 'Louise Lima', '3999.99', '2018-04-21', 'F', NULL); -- INSERIR VALORES NA TABELA
+-- INSERIR VALORES NA TABELA
+INSERT INTO tb_funcionarios VALUES (2, 'Louise Lima', '3999.99', '2018-04-21', 'F', NULL);
 
 -- VISUALIZA DETALHES DA TABELA
 desc tb_funcionarios;
@@ -50,7 +51,8 @@ INSERT INTO tb_pessoas (nome, sexo) VALUES
 ('Louise', 'F'),
 ('José', 'M'); 
 
-DELETE FROM tb_pessoas where banco; 
+-- DELETA A TABELA DO BANCO SELECIONADO
+DELETE FROM tb_pessoas WHERE banco; 
 
 -- DELETA BANCO E VALORES NELE
 DROP DATABASE testebanco;
